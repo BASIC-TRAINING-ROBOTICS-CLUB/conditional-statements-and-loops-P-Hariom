@@ -1,0 +1,44 @@
+
+#include <iostream>
+
+class RelativeVelocity {
+private:
+    double velocity1;
+    double velocity2;
+
+public:
+    
+    RelativeVelocity(double v1, double v2) : velocity1(v1), velocity2(v2) {}
+
+    
+    double calculateRelativeVelocity() const {
+        return velocity1 - velocity2;
+    }
+
+    
+    void display() const {
+        double relVelocity = calculateRelativeVelocity();
+        if (relVelocity >= 0)
+            std::cout << "Relative velocity: " << relVelocity << " m/s (Object 1 is faster or same as Object 2)" << std::endl;
+        else
+            std::cout << "Relative velocity: " << -relVelocity << " m/s (Object 2 is faster)" << std::endl;
+    }
+};
+
+int main() {
+    double v1, v2;
+    
+    
+    std::cout << "Enter velocity of Object 1 (in m/s): ";
+    std::cin >> v1;
+    std::cout << "Enter velocity of Object 2 (in m/s): ";
+    std::cin >> v2;
+
+    
+    RelativeVelocity relativeVelocity(v1, v2);
+    
+    
+    relativeVelocity.display();
+
+    return 0;
+}
